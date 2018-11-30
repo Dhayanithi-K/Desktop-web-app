@@ -1,0 +1,23 @@
+Input for Add User in JSON format:
+
+{ 
+ "workstations_string":"10.144.129.169", 
+ "userids_string":"c812105", 
+ "NoOfDays":"10",
+ "Incident_No" :"INC0000065432"
+}
+
+Input for Remove User in JSON format:
+
+{ 
+ "workstations_string":"10.144.129.169", 
+ "userids_string":"c812105"
+}
+
+Login Input:
+{
+"username" : "c737960"
+"password" : "nov@1967"
+}
+
+1.

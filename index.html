@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/material-icon.css" rel="stylesheet">
+<link rel="stylesheet" href="css/materialize.min.css">
+<style>
+.filler{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+.filler_pane{
+    background-color: #384E61;
+    -webkit-app-region: drag;
+}
+.filler_body{
+    -webkit-app-region: no-drag;
+}
+.pane_content{
+    background-color: #384E61 !important;
+    -webkit-app-region: no-drag;
+    padding:10px;
+}
+#toast-container {
+    min-width: 10%;
+    top: 50%;
+    right: 50%;
+    transform: translateX(85%) translateY(75%);
+}
+.container .material-icons{
+  color: #616191;
+}
+.glass{
+  margin-left: 5px;
+  margin-right:5px;
+  background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  border: 2px solid #efeeec;  
+  -webkit-box-shadow: 3px 3px 10px rgba(0,0,0,0.4), inset 0 0 10px rgba(255,255,255, 0.8); 
+  -moz-box-shadow:  3px 3px 10px rgba(0,0,0,0.4), inset 0 0 10px rgba(255,255,255, 0.8);
+  box-shadow:     3px 3px 10px rgba(0,0,0,0.4), inset 0 0 10px rgba(255,255,255, 0.8);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 5px;
+  border-bottom-radius: 10px;
+}
+</style>
+</head>
+<body>
+  <div class="row" style="margin-bottom:0px;border: 0px solid #384E61;">
+      <div class="col s4 filler filler_pane">
+          <div class="row ">
+            <center><h5 class="white-text"><strong>Workstation Access</strong></h5></center>
+          </div>
+          <div id="add_div" class="row transparent filler_body glass">
+            <button class="waves-effect waves-ripple waves-teal btn-flat right white-text" type="button" id="add-btn"><i class="material-icons right">add_box</i>Add User</button>
+          </div>
+          <div id="rem_div" class="row transparent filler_body">
+            <button class="waves-effect waves-ripple waves-teal btn-flat right white-text" type="button" id="rem-btn"><i class="material-icons right">remove</i>Remove User</button>
+          </div>
+          <div id="mod_div" class="row transparent filler_body">
+            <button class="waves-effect waves-ripple waves-teal btn-flat right white-text" type="button" id="mod-btn"><i class="material-icons right">edit</i>Modify/Edit User</button>
+          </div>
+          <div id="logout_div" class="row transparent filler_body" style="margin-top: 86%">
+            <button class="waves-effect waves-ripple waves-teal btn-flat right white-text " type="button" id="logout-btn"><i class="material-icons right">exit_to_app</i>Logout</button>
+          </div>
+      </div>
+
+      <div class="col s8 grey lighten-2 filler filler_body">
+
+        <button class="btn-small btn-flat waves-effect waves-light right transparent" type="button"  id="close-btn" style="padding:2px;">
+          <i class="small material-icons transparent" >close</i>
+        </button>
+        <button class="btn-small btn-flat waves-effect waves-light right transparent" type="button" id="min-btn" style="padding:2px;">
+          <i class="small material-icons transparent" >remove</i>
+        </button>
+
+        <div class="container">        
+          <div class="row">
+            <form class="col s8" style="margin-top:7%;margin-left:10%">
+              <div class="row">
+                <div class="input-field col s2 ">
+                    <i id="win-icon" class="tiny material-icons prefix">add_box</i>
+                </div>
+                <div class="input-field col s6 ">
+                  <h6 id="win-head"><strong>Add User</strong></h6>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12 ">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="ldapid" type="text" class="validate ">
+                  <label for="ldapid">LDAP Id</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s8">
+                  <i class="material-icons prefix">computer</i>
+                  <input id="wrkstn" type="text" class="validate">
+                  <label for="wrkstn">Workstation</label>
+                </div>
+                <div class="input-field col s4 date_lim">
+                  <i class="material-icons prefix">timer</i>
+                  <input id="date_lim" type="text" class="validate">
+                  <label for="date_lim">Days</label>
+                </div>
+              </div>
+              <div class="row">            
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">local_offer</i>
+                  <input id="inc_no" type="text" class="validate">
+                  <label for="inc_no">Incident no</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <center>
+                    <button class="btn-small waves-effect waves-light" type="button" id="btn-login">submit
+                      <!--i class="material-icons left">play_circle_outline</i-->
+                    </button>
+                  </center>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+</div>
+</body>
+<script>
+  require('./renderer.js')
+</script>
+<script type="text/javascript" src="js/materialize.js"></script>
+</html>

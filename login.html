@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/material-icon.css" rel="stylesheet">
+<link rel="stylesheet" href="css/materialize.min.css">
+<style>
+.filler{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+.filler_pane{
+    width: 20vw;
+    background-color: #384E61;
+    -webkit-app-region: drag;
+}
+.filler_body{
+    -webkit-app-region: no-drag;
+}
+#toast-container {
+    min-width: 10%;
+    top: 50%;
+    right: 50%;
+    transform: translateX(85%) translateY(65%);
+}
+</style>
+</head>
+<body>
+<div class="row" style="margin-bottom:0px;border: 0px solid #384E61;">
+  <div class="col s4 filler filler_pane">
+  </div>
+  <div class="col s8 grey lighten-2 filler filler_body">
+    <button class="btn-small btn-flat waves-effect waves-light right transparent" type="button"  id="close-btn" style="padding:2px;">
+      <i class="small material-icons transparent" >close</i>
+     </button>
+    <button class="btn-small btn-flat waves-effect waves-light right transparent" type="button" id="min-btn" style="padding:2px;">
+      <i class="small material-icons transparent" >remove</i>
+     </button>
+    <div class="container">        
+      <div class="row">
+      <form class="col s8" style="margin-top:14%;margin-left:15%">
+        <h5 style="color:#757575 ">Workstation Access</h5>    
+        <div class="row">
+          <div class="input-field col s12 ">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="ldapid" type="text" class="validate ">
+            <label for="ldapid">LDAP Id</label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock</i>
+            <input id="pwdtxt" type="password" class="validate">
+            <label for="pwdtxt">Password</label>
+          </div>
+          <div class="input-field col s12">
+            <center>
+              <button class="btn-small waves-effect waves-light" type="button" id="login-btn">login
+                <!--i class="material-icons left">play_circle_outline</i-->
+              </button>
+            </center>
+          </div>
+          <div class="progress col s12 hide">
+              <div class="indeterminate"></div>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript" src="js/materialize.js"></script>
+<script type="text/javascript" src="signin.js"></script>
+</html>
